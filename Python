@@ -1,11 +1,14 @@
-def random_gen():
-   import random
-   number1 = int(input('Choose your first number.\n'))
-   number2 = int(input('Choose your second number.\n'))
-   if number1 > number2:
-      print(random.randint(number2, number1))
-   if number2 > number1:
-      print(random.randint(number1, number2), 'is your random number')
+def random_gen():  # Creates a function
+   import random  # Imports the library needed to randomize
+   number1 = int(input('Choose your first number.\n'))  # Gets the first input and calls it 'number1'
+   number2 = int(input('Choose your second number.\n'))  # Gets the second input and calls it 'number2'
+   if number1 > number2:  # Checks if the first number is larger than the second to avoid errors
+      print(random.randint(number2, number1))  # Gets any random number between the two
+   if number2 > number1:  # Checks if the second number is larger than the first to avoid errors
+      print(random.randint(number1, number2), 'is your random number')  # Gets any random number between the two
+   if number1 == number2:  # Checks if they are the same
+      print('Your numbers are the same, please try again')  # Tells you they are the same number
+      random_gen()  # Restarts the function
 
-while True:
-   random_gen()
+while True:  # Is basically the 'forever' loop
+   random_gen()  # Does the function forever
