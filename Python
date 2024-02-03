@@ -1,0 +1,11 @@
+def random_gen():
+   import random
+   number1 = int(input('Choose your first number.\n'))
+   number2 = int(input('Choose your second number.\n'))
+   if number1 > number2:
+      print(random.randint(number2, number1))
+   if number2 > number1:
+      print(random.randint(number1, number2), 'is your random number')
+
+while True:
+   random_gen()
