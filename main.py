@@ -1,9 +1,9 @@
 def get_int(prompt):
-   s = input(prompt)
-   while not s.isnumeric():
-      s = input(f'You have entered "{s}". ' + 
+   i = input(prompt)
+   while not i.isnumeric():
+      i = input(f'You have entered "{i}". ' + 
                 'It is not a positive integer. Please enter a positive integer:\n')
-   return int(s)
+   return int(i)
 
 def random_gen():
    import random
@@ -14,7 +14,7 @@ def random_gen():
    if number1 > number2:
       print(random.randint(number2, number1),'is your random number.')
       print()
-   if number2 > number1:
+   if number1 < number2:
       print(random.randint(number1, number2),'is your random number.')
       print()
    if number1 == number2:
