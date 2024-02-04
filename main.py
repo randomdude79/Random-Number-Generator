@@ -1,8 +1,12 @@
 def get_int(prompt):
    i = input(prompt)
+   while i == "Feedback":
+      input('What is your feedback?\n')
+      print('Thank you for your feedback!')
+      i = input(prompt)
    while not i.isnumeric():
       i = input(f'You have entered "{i}".' + 
-                f' "{i}" is not a positive integer. Please enter a positive integer:\n')
+             f' "{i}" is not a positive integer. Please enter a positive integer:\n')
    return int(i)
 
 def random_gen():
@@ -20,6 +24,10 @@ def random_gen():
    if number1 == number2:
       print('Your numbers are the same, please try again')
       print()
+      random_gen()
+   if number1 == "Feedback":
+      input('What is your feedback for this project?')
+      print('Thank you for your feedback!')
       random_gen()
 
 while True:
