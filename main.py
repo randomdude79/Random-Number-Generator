@@ -3,8 +3,8 @@ def get_int(prompt):
    while i == "Feedback":
       feed = input('What is your feedback?\n')
       try: 
-          with open('feedback.txt', 'w') as feedback: 
-              feedback.write(feed)
+          with open('feedback.txt', 'a') as feedback: 
+              feedback.write(feed + '\n')
       except Exception:
           print('Something went wrong')
       i = input(prompt)
