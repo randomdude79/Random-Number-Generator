@@ -1,8 +1,12 @@
 def get_int(prompt):
    i = input(prompt)
    while i == "Feedback":
-      input('What is your feedback?\n')
-      print('Thank you for your feedback!')
+      feed = input('What is your feedback?\n')
+      try: 
+          with open('feedback.txt', 'w') as feedback: 
+              feedback.write(feed)
+      except Exception:
+          print('Something went wrong')
       i = input(prompt)
    while not i.isnumeric():
       i = input(f'You have entered "{i}".' + 
@@ -32,3 +36,4 @@ def random_gen():
 
 while True:
    random_gen()
+   
