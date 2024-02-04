@@ -8,5 +8,3 @@ It will automatically start over when you are done with generation.
 Thank you for using this generator!
 
 -Sasha Baranov, Creator
-
-THIS CODE ONLY WORKS IN PYTHON
