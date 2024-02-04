@@ -1,8 +1,8 @@
 def get_int(prompt):
    i = input(prompt)
    while not i.isnumeric():
-      i = input(f'You have entered "{i}". ' + 
-                'It is not a positive integer. Please enter a positive integer:\n')
+      i = input(f'You have entered "{i}".' + 
+                f' "{i}" is not a positive integer. Please enter a positive integer:\n')
    return int(i)
 
 def random_gen():
