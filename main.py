@@ -2,9 +2,9 @@ def get_int(prompt):
    s = input(prompt)
    while not s.isnumeric():
       s = input(f'You have entered "{s}". ' + 
-                'It is not a positive integer. Please enter an integer:\n')
+                'It is not a positive integer. Please enter a positive integer:\n')
    return int(s)
-   
+
 def random_gen():
    import random
    number1 = get_int('Choose your first number.\n')
@@ -21,6 +21,6 @@ def random_gen():
       print('Your numbers are the same, please try again')
       print()
       random_gen()
-      
+
 while True:
    random_gen()
