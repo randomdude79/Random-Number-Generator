@@ -5,6 +5,5 @@ It will give you a random number from the first number to the second one.
 If the numbers are the same, it will tell you that.
 It will automatically start over when you are done with generation.
 Thank you for using this generator!
-On the shortened version, negative numbers do not work.
-
+Website coming at v2.0!
 -Sasha Baranov, Creator
