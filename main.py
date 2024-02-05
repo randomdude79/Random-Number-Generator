@@ -10,11 +10,13 @@ def get_int(prompt):
   while i == "Feedback":
     print()
     feed = input('What is your feedback?\n')
+    print()
+    email =  input('What is your email?\n')
     try:
       with open('feedback.txt', 'a') as feedback:
-        feedback.write(feed + '\n')
+        feedback.write(feed + '\n' + 'Email:' + email + '\n' + '\n')
         print()
-        print('Thank you for your feedback!')
+        print('Thank you for your feedback! We will take a look at it.')
         print()
     except Exception:
       print('Something went wrong')
