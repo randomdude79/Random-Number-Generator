@@ -1,3 +1,10 @@
+def is_an_integer(s):
+  try:
+    int(s)
+    return True
+  except ValueError:
+    return False
+    
 def get_int(prompt):
   i = input(prompt)
   while i == "Feedback":
@@ -12,7 +19,7 @@ def get_int(prompt):
     except Exception:
       print('Something went wrong')
     i = input(prompt)
-  while not i.isnumeric():
+  while not is_an_integer(i):
     i = input(
         f'You have entered "{i}".' +
         f' "{i}" is not a positive integer. Please enter a positive integer:\n')
@@ -35,6 +42,5 @@ def random_gen():
     print('Your numbers are the same, please try again')
     print()
     random_gen()
-    
 while True:
   random_gen()
