@@ -8,6 +8,7 @@ def get_int(prompt):
         feedback.write(feed + '\n')
         print()
         print('Thank you for your feedback!')
+        print()
     except Exception:
       print('Something went wrong')
     i = input(prompt)
@@ -34,6 +35,11 @@ def random_gen():
     print('Your numbers are the same, please try again')
     print()
     random_gen()
-
+  if number1 == 69 and number2 == 420:
+    print('Did you have to do that?')
+    print()
+  if number1 == 420 and number2 == 69:
+    print('Did you have to do that?')
+    print()
 while True:
   random_gen()
