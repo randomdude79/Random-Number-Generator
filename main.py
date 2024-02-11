@@ -11,27 +11,33 @@ def is_an_integer(s):
 
 def get_int(prompt):
   i = input(prompt)
-  while i == "Exit":
+  while i == "-0":
+    print('-0 is not an integer. Please try again.')
+    print()
+    i = input(prompt)
+  while i == "Exit" or i == "exit":
     exit()
   while i == "Feedback" or i == "feedback":
     print()
-    feed = input('What is your feedback?\n')
+    feedback = input('What is your feedback?\n')
     print()
     email = input(
         'What is your email? We will use this only to respond to you.\n')
     try:
-      with open('feedback.txt', 'a') as feedback:
-        feedback.write(feed + '\n' + 'Email:' + email + '\n' + '\n')
+      with open('feedback.txt', 'a') as feed:
+        feed.write(feedback + '\n' + 'Email:' + email + '\n' + '\n')
         print()
         print('Thank you for your feedback! We will take a look at it.')
         print()
         exit_input = input('Would you like to exit?\n')
-        while exit_input == 'Yes' or exit_input == 'yes':
+        if exit_input == 'Yes' or exit_input == 'yes':
           exit()
-        while exit_input == 'No' or exit_input == 'no':
-          random_gen()
+        if exit_input == 'No' or exit_input == 'no':
+          while True:
+            random_gen()
     except Exception:
-      return int(i)
+      random_gen()
+
   while not is_an_integer(i):
     i = input(f'You have entered "{i}".' +
               f' "{i}" is not an integer. Please enter an integer:\n')
