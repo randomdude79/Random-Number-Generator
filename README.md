@@ -7,3 +7,5 @@ It will automatically start over when you are done with generation.
 Thank you for using this generator!
 Website coming at v2.0!
 -Sasha Baranov, Creator
+
+Note: To exit, please use the "Exit" function. Otherwise, the feedback will not save.
