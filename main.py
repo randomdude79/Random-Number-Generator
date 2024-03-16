@@ -1,8 +1,7 @@
-import sys
 import random
 
 def exit_program():
-    sys.exit()
+    exit()
 
 def get_int(prompt):
     while True:
