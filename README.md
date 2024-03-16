@@ -1,3 +1,5 @@
+# Random Number Generator
+
 Hi, this is my random number generator.
 To use it, run the code and enter the first number when prompted.
 Then, enter the second number.
