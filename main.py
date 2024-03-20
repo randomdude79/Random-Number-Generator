@@ -36,24 +36,46 @@ def get_int(prompt):
           while True:
             random_gen()
     except Exception:
+      print('Something went wrong.')
       random_gen()
 
   while not is_an_integer(i):
     i = input(f'You have entered "{i}".' +
-              f' "{i}" is not an integer. Please enter an integer:\n')
+              f' "{i}" is not an integer. Please enter an integer.\n')
   return int(i)
 
 def random_gen():
+  global randomInt1
+  global randomInt2
   import random
-  print()
   number1 = get_int('Choose your first number.\n')
   print()
   number2 = get_int('Choose your second number.\n')
   print()
+  amount = get_int('How many numbers do you want to generate?\n')
+  number1 = int(number1)
+  number2 = int(number2)
   if number1 > number2:
-    print('Your random number is', random.randint(number2, number2))
+    if amount > 1:
+      print('Your random numbers are:')
+      for i in range(amount):
+        randomInt1 = random.randint(number2, number1)
+        randomInt1 = int(randomInt1)
+        print(randomInt1)
+    if amount == 1:
+      randomInt1 = random.randint(number2, number1)
+      print('Your random number is:', randomInt1)
+    print()
   if number1 < number2:
-    print('Your random number is', random.randint(number1, number2))
+    if amount > 1:
+      print('Your random numbers are:')
+      for i in range(amount):
+        randomInt2 = random.randint(number1, number2)
+        print(randomInt2)
+    if amount == 1:
+      randomInt2 = random.randint(number1, number2)
+      print('Your random number is:', randomInt2)
+    print()
   if number1 == number2:
     print('Your numbers are the same, please try again')
     print()
