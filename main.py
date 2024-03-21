@@ -1,6 +1,36 @@
+def animate():
+  import sys
+  import time
+
+  sys.stdout.write('-\r')
+  time.sleep(0.2)
+  sys.stdout.write('--\r')
+  time.sleep(0.2)
+  sys.stdout.write('---\r')
+  time.sleep(0.2)
+  sys.stdout.write('----\r')
+  time.sleep(0.2)
+  sys.stdout.write('-----\r')
+  time.sleep(0.2)
+  sys.stdout.write('------\r')
+  time.sleep(0.2)
+  sys.stdout.write('-------\r')
+  time.sleep(0.2)
+  sys.stdout.write('--------\r')
+  time.sleep(0.2)
+  sys.stdout.write('---------\r')
+  time.sleep(0.2)
+  sys.stdout.write('----------\r')
+  time.sleep(0.2)
+  sys.stdout.write('-----------\r')
+  time.sleep(0.3)
+  sys.stdout.write('            \r')
+
+
 def exit():
   import sys
   sys.exit()
+
 
 def is_an_integer(s):
   try:
@@ -8,6 +38,7 @@ def is_an_integer(s):
     return True
   except ValueError:
     return False
+
 
 def get_int(prompt):
   i = input(prompt)
@@ -44,6 +75,7 @@ def get_int(prompt):
               f' "{i}" is not an integer. Please enter an integer.\n')
   return int(i)
 
+
 def random_gen():
   global randomInt1
   global randomInt2
@@ -57,6 +89,9 @@ def random_gen():
   number2 = int(number2)
   if number1 > number2:
     if amount > 1:
+      if amount > 50:
+        print('This might take a while.\n')
+        animate()
       print('Your random numbers are:')
       for i in range(amount):
         randomInt1 = random.randint(number2, number1)
@@ -64,17 +99,20 @@ def random_gen():
         print(randomInt1)
     if amount == 1:
       randomInt1 = random.randint(number2, number1)
-      print('Your random number is:', randomInt1)
+      print('Your random number is:\n', randomInt1)
     print()
   if number1 < number2:
     if amount > 1:
+      if amount > 50:
+        print('This might take a while.\n')
+        animate()
       print('Your random numbers are:')
       for i in range(amount):
         randomInt2 = random.randint(number1, number2)
         print(randomInt2)
     if amount == 1:
       randomInt2 = random.randint(number1, number2)
-      print('Your random number is:', randomInt2)
+      print('Your random number is:\n', randomInt2)
     print()
   if number1 == number2:
     print('Your numbers are the same, please try again')
@@ -86,6 +124,7 @@ def random_gen():
   if number1 == 420 and number2 == 69:
     print('Did you have to do that?')
     print()
+
 
 while True:
   random_gen()
