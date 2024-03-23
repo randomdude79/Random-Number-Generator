@@ -1,19 +1,35 @@
-def animate():
+import statistics
+
+numbersList = []
+
+
+def clear():
+  import os
+  os.system('clear')
+
+
+def animate(key):
   import sys
   import time
 
-  for a in range(2):
+  for a in range(key):
+    sys.stdout.write('Generating your numbers        \r')
+    time.sleep(0.75)
     sys.stdout.write('Generating your numbers.       \r')
     time.sleep(0.75)
     sys.stdout.write('Generating your numbers..      \r')
     time.sleep(0.75)
     sys.stdout.write('Generating your numbers...     \r')
     time.sleep(0.75)
+  sys.stdout.write('Cleaning up                      \r')
+  time.sleep(0.75)
   sys.stdout.write('Cleaning up.                     \r')
   time.sleep(0.75)
   sys.stdout.write('Cleaning up..                    \r')
   time.sleep(0.75)
   sys.stdout.write('Cleaning up...                   \r')
+  time.sleep(0.75)
+  sys.stdout.write('Almost done                      \r')
   time.sleep(0.75)
   sys.stdout.write('Almost done.                     \r')
   time.sleep(0.75)
@@ -43,9 +59,14 @@ def get_int(prompt):
     print('-0 is not an integer. Please try again.')
     print()
     i = input(prompt)
-  while i == "Exit" or i == "exit":
+  while i == "/clear":
+    clear()
+    print('Console cleared!\n')
+    while True:
+      random_gen()
+  while i == "/exit":
     exit()
-  while i == "Feedback" or i == "feedback":
+  while i == "/feedback":
     print()
     feedback = input('What is your feedback?\n')
     print()
@@ -88,12 +109,26 @@ def random_gen():
     if amount > 1:
       if amount > 50:
         print('This might take a while.\n')
-        animate()
+        if amount > 100:
+          key = 3
+          animate(key)
+        if amount <= 100:
+          key = 1
+          animate(key)
       print('Your random numbers are:')
       for i in range(amount):
         randomInt1 = random.randint(number2, number1)
         randomInt1 = int(randomInt1)
         print(randomInt1)
+        numbersList.append(randomInt1)
+      question = input('Would you like to find the average of all your numbers?\n')
+      if question == 'Yes' or question == 'yes':
+        print('\nThe average of all your numbers is:',statistics.mean(numbersList),'\n')
+        while True:
+          random_gen()
+      elif question == 'No' or question == 'no':
+        while True:
+          random_gen()
     if amount == 1:
       randomInt1 = random.randint(number2, number1)
       print('Your random number is:\n', randomInt1)
@@ -102,25 +137,37 @@ def random_gen():
     if amount > 1:
       if amount > 50:
         print('This might take a while.\n')
-        animate()
+        if amount > 100:
+          key = 3
+          animate(key)
+        if amount <= 100:
+          key = 1
+          animate(key)
       print('Your random numbers are:')
       for i in range(amount):
         randomInt2 = random.randint(number1, number2)
         print(randomInt2)
+        numbersList.append(randomInt2)
+      question = input('Would you like to find the average of all your numbers?\n')
+      if question == 'Yes' or question == 'yes':
+        print('\nThe average of all your numbers is:',statistics.mean(numbersList),'\n')
+        while True:
+          random_gen()
+      elif question == 'No' or question == 'no':
+        while True:
+          random_gen()
+      resultsList = []
     if amount == 1:
       randomInt2 = random.randint(number1, number2)
       print('Your random number is:\n', randomInt2)
     print()
   if number1 == number2:
-    print('Your numbers are the same, please try again')
-    print()
+    print('Your numbers are the same, please try again\n')
     random_gen()
   if number1 == 69 and number2 == 420:
-    print('Did you have to do that?')
-    print()
+    print('Did you have to do that?\n')
   if number1 == 420 and number2 == 69:
-    print('Did you have to do that?')
-    print()
+    print('Did you have to do that?\n')
 
 
 while True:
