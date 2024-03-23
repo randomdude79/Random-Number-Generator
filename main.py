@@ -102,7 +102,16 @@ def random_gen():
   print()
   number2 = get_int('Choose your second number.\n')
   print()
+  seed = input('Would you like to use a seed?\n')
+  print()
+  if seed == 'Yes' or seed == 'yes':
+    seed = get_int('What is your seed?\n')
+    print()
+    random.seed(seed)
+  if seed == 'No' or seed == 'no':
+    random.seed()
   amount = get_int('How many numbers do you want to generate?\n')
+  print()
   number1 = int(number1)
   number2 = int(number2)
   if number1 > number2:
@@ -121,9 +130,13 @@ def random_gen():
         randomInt1 = int(randomInt1)
         print(randomInt1)
         numbersList.append(randomInt1)
-      question = input('Would you like to find the average of all your numbers?\n')
+      random.seed()
+      print()
+      question = input(
+          'Would you like to find the average of all your numbers?\n')
       if question == 'Yes' or question == 'yes':
-        print('\nThe average of all your numbers is:',statistics.mean(numbersList),'\n')
+        print('\nThe average of all your numbers is:',
+              statistics.mean(numbersList), '\n')
         while True:
           random_gen()
       elif question == 'No' or question == 'no':
@@ -132,6 +145,7 @@ def random_gen():
     if amount == 1:
       randomInt1 = random.randint(number2, number1)
       print('Your random number is:\n', randomInt1)
+    random.seed()
     print()
   if number1 < number2:
     if amount > 1:
@@ -148,9 +162,13 @@ def random_gen():
         randomInt2 = random.randint(number1, number2)
         print(randomInt2)
         numbersList.append(randomInt2)
-      question = input('Would you like to find the average of all your numbers?\n')
+      random.seed()
+      print()
+      question = input(
+          'Would you like to find the average of all your numbers?\n')
       if question == 'Yes' or question == 'yes':
-        print('\nThe average of all your numbers is:',statistics.mean(numbersList),'\n')
+        print('\nThe average of all your numbers is:',
+              statistics.mean(numbersList), '\n')
         while True:
           random_gen()
       elif question == 'No' or question == 'no':
@@ -160,6 +178,7 @@ def random_gen():
     if amount == 1:
       randomInt2 = random.randint(number1, number2)
       print('Your random number is:\n', randomInt2)
+    random.seed()
     print()
   if number1 == number2:
     print('Your numbers are the same, please try again\n')
