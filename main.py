@@ -1,68 +1,73 @@
 import random
 import statistics
+import pyperclip
+import time
 import os
 import sys
-import time
 
-numbersList = []
-
+numbers_list = []
 
 def clear():
     os.system('clear')
 
-
-def animate(message):
-    for _ in range(4):
-        for c in '|/-\\':
-            sys.stdout.write(f'{message} {c}\r')
-            sys.stdout.flush()
-            time.sleep(0.1)
-
+def animate():
+    for _ in range(2):
+        for text in ['Generating your numbers', 'Cleaning up', 'Almost done']:
+            sys.stdout.write(f'{text}{"." * len(text) < 16}\r')
+            time.sleep(0.75)
+    sys.stdout.write(' ' * 32 + '\r')
 
 def exit_program():
     sys.exit()
 
+def is_an_integer(s):
+    return s.isdigit()
 
 def get_int(prompt):
     while True:
-        try:
-            i = int(input(prompt))
-            return i
-        except ValueError:
-            print("Please enter an integer.\n")
-
+        i = input(prompt)
+        if i == "//clear":
+            clear()
+            print('Console cleared!\n')
+        elif i == "//exit":
+            exit_program()
+        elif i == "/feedback":
+            feedback = input('What is your feedback?\n')
+            email = input('What is your email? We will use this only to respond to you.\n')
+            with open('feedback.txt', 'a') as feed:
+                feed.write(f'{feedback}\nEmail: {email}\n\n')
+            print('Thank you for your feedback!')
+            if input('Would you like to exit? (Yes/No)\n').lower() == 'yes':
+                exit_program()
+        elif is_an_integer(i):
+            return int(i)
+        else:
+            print(f'Invalid input: "{i}". Please enter an integer.\n')
 
 def random_gen():
-    global numbersList
-    numbersList = []
-    number1 = get_int('Choose your first number:\n')
-    number2 = get_int('Choose your second number:\n')
-    seed_choice = input('Would you like to use a seed? (Yes/No)\n')
-    if seed_choice.lower() == 'yes':
-        seed = get_int('Enter your seed:\n')
-        random.seed(seed)
-    else:
-        random.seed()
-
+    global seed
+    number1 = get_int('Choose your first number.\n')
+    number2 = get_int('Choose your second number.\n')
+    seed_question = input('Would you like to use a seed? (Yes/No)\n').lower()
+    seed = get_int('What is your seed?\n') if seed_question == 'yes' else random.randint(0, 70368744177664)
+    random.seed(seed)
     amount = get_int('How many numbers do you want to generate?\n')
-    print('Generating your numbers...')
-    time.sleep(1)
-
-    start, end = min(number1, number2), max(number1, number2)
-    random_numbers = [random.randint(start, end) for _ in range(amount)]
-    numbersList.extend(random_numbers)
-
+    if number1 > number2:
+        numbers = (random.randint(number2, number1) for _ in range(amount))
+    else:
+        numbers = (random.randint(number1, number2) for _ in range(amount))
     print('Your random numbers are:')
-    for num in random_numbers:
+    for num in numbers:
         print(num)
-
-    avg_choice = input('Would you like to find the average of all your numbers? (Yes/No)\n')
-    if avg_choice.lower() == 'yes':
-        print('\nThe average of all your numbers is:', statistics.mean(numbersList), '\n')
-
-    print()
-    return
-
+        numbers_list.append(num)
+    random.seed()
+    if input('Would you like to find the average of all your numbers? (Yes/No)\n').lower() == 'yes':
+        print('\nThe average of all your numbers is:', statistics.mean(numbers_list), '\n')
+    if input('Would you like to know your seed? (Yes/No)\n').lower() == 'yes':
+        pyperclip.copy(str(seed))
+        print('Your seed has been copied to the clipboard.\n')
+    while True:
+        random_gen()
 
 while True:
     random_gen()
