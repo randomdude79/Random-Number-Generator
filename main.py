@@ -1,8 +1,20 @@
 import statistics
 import sys
 import time
+import pyperclip
 
 numbersList = []
+
+
+def copy():
+    try:
+        if 'seed' in globals():
+            pyperclip.copy(seed)
+            print('Copied to clipboard:', seed)
+        else:
+            print('Variable "seed" is not defined.')
+    except Exception as e:
+        print('An error occurred while copying to clipboard:', e)
 
 
 def clear():
@@ -95,20 +107,22 @@ def get_int(prompt):
 
 def random_gen():
     global randomInt1
+    global seed
     global randomInt2
     import random
     number1 = get_int('Choose your first number.\n')
     print()
     number2 = get_int('Choose your second number.\n')
     print()
-    seed = input('Would you like to use a seed?\n')
+    seedquestion0 = input('Would you like to use a seed?\n')
     print()
-    if seed == 'Yes' or seed == 'yes':
+    if seedquestion0 == 'Yes' or seedquestion0 == 'yes':
         seed = get_int('What is your seed?\n')
         print()
         random.seed(seed)
-    elif seed == 'No' or seed == 'no':
-        random.seed()
+    elif seedquestion0 == 'No' or seedquestion0 == 'no':
+        seed = random.randint(0, 70368744177664)
+        random.seed(seed)
     amount = get_int('How many numbers do you want to generate?\n')
     print()
     number1 = int(number1)
@@ -131,10 +145,21 @@ def random_gen():
             if question == 'Yes' or question == 'yes':
                 print('\nThe average of all your numbers is:',
                       statistics.mean(numbersList), '\n')
-                while True:
-                    random_gen()
             elif question == 'No' or question == 'no':
                 print()
+            seedquestion = input('Would you like to know your seed?\n')
+            if seedquestion == 'Yes' or seedquestion == 'yes':
+                print('Your seed is: ', seed)
+                copy_seed = input('Would you like to copy the seed?\n')
+                if copy_seed == 'Yes' or copy_seed == 'yes':
+                    copy()
+                    print('Your seed has been copied.\n')
+                    while True:
+                        random_gen()
+                else:
+                    while True:
+                        random_gen()
+            elif seedquestion == 'No' or seedquestion == 'no':
                 while True:
                     random_gen()
         if amount == 1:
@@ -159,10 +184,21 @@ def random_gen():
             if question == 'Yes' or question == 'yes':
                 print('\nThe average of all your numbers is:',
                       statistics.mean(numbersList), '\n')
-                while True:
-                    random_gen()
             elif question == 'No' or question == 'no':
                 print()
+            seedquestion = input('Would you like to know your seed?\n')
+            if seedquestion == 'Yes' or seedquestion == 'yes':
+                print('Your seed is: ', seed)
+                copy_seed = input('Would you like to copy the seed?\n')
+                if copy_seed == 'Yes' or copy_seed == 'yes':
+                    copy()
+                    print('Your seed has been copied.\n')
+                    while True:
+                        random_gen()
+                else:
+                    while True:
+                        random_gen()
+            elif seedquestion == 'No' or seedquestion == 'no':
                 while True:
                     random_gen()
         if amount == 1:
