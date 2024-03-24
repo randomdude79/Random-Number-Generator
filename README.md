@@ -27,4 +27,4 @@ It generates random numbers within the specified range and displays them to the 
 It handles edge cases like when the user inputs the same number for both ends of the range or special numbers like 69 and 420.
 Overall, this program serves as a simple tool for generating random numbers with user-defined ranges, while also allowing for feedback from users.
 ### [Credits](Credits.md)
-###[Code](main.py.md)
+### [Code](main.py.md)
