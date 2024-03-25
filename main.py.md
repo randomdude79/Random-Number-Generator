@@ -1,7 +1,6 @@
 # This is a read-only version of the code
 ```
 import statistics
-import sys
 import time
 import pyperclip
 
@@ -25,32 +24,13 @@ def clear():
 
 
 def animate():
-    for a in range(2):
-        sys.stdout.write('Generating your numbers        \r')
-        time.sleep(0.75)
-        sys.stdout.write('Generating your numbers.       \r')
-        time.sleep(0.75)
-        sys.stdout.write('Generating your numbers..      \r')
-        time.sleep(0.75)
-        sys.stdout.write('Generating your numbers...     \r')
-        time.sleep(0.75)
-    sys.stdout.write('Cleaning up                      \r')
-    time.sleep(0.75)
-    sys.stdout.write('Cleaning up.                     \r')
-    time.sleep(0.75)
-    sys.stdout.write('Cleaning up..                    \r')
-    time.sleep(0.75)
-    sys.stdout.write('Cleaning up...                   \r')
-    time.sleep(0.75)
-    sys.stdout.write('Almost done                      \r')
-    time.sleep(0.75)
-    sys.stdout.write('Almost done.                     \r')
-    time.sleep(0.75)
-    sys.stdout.write('Almost done..                    \r')
-    time.sleep(0.75)
-    sys.stdout.write('Almost done...                   \r')
-    time.sleep(1)
-    sys.stdout.write('                                 \r')
+    for i in range(101):
+        if i <= 90:
+            time.sleep(0.1)
+        else:
+            time.sleep(0.1 + (i - 90) * 0.05)
+        print(f"\r{i}% ", end="")
+    print("\r100%")
 
 
 def exit_program():
@@ -79,7 +59,7 @@ def get_int(prompt):
             random_gen()
     while i == "//exit":
         exit_program()
-    while i == "/feedback":
+    while i == "//feedback":
         print()
         feedback = input('What is your feedback?\n')
         print()
@@ -219,4 +199,5 @@ def random_gen():
 
 while True:
     random_gen()
+
 ```
