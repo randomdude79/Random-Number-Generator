@@ -9,9 +9,9 @@ def copy():
     try:
         if 'seed' in globals():
             pyperclip.copy(seed)
-            print('Copied to clipboard:', seed)
+            print('Copied to clipboard:', seed, '\n')
         else:
-            print('Variable "seed" is not defined.')
+            print('Variable "seed" is not defined.\n')
     except Exception as e:
         print('An error occurred while copying to clipboard:', e)
 
@@ -26,7 +26,7 @@ def animate():
         if i <= 90:
             time.sleep(0.1)
         else:
-            time.sleep(0.1 + (i - 90) * 0.05)
+            time.sleep(0.1 + (i - 90) * 0.075)
         print(f"\r{i}% ", end="")
     print("\r100%")
 
@@ -94,7 +94,7 @@ def random_gen():
     print()
     number2 = get_int('Choose your second number.\n')
     print()
-    seedquestion0 = input('Would you like to use a seed?\n')
+    seedquestion0 = input('Would you like to use a set seed?\n')
     print()
     if seedquestion0 == 'Yes' or seedquestion0 == 'yes':
         seed = get_int('What is your seed?\n')
@@ -128,9 +128,12 @@ def random_gen():
             elif question == 'No' or question == 'no':
                 print()
             seedquestion = input('Would you like to know your seed?\n')
+            print()
             if seedquestion == 'Yes' or seedquestion == 'yes':
                 print('Your seed is: ', seed)
+                print()
                 copy_seed = input('Would you like to copy the seed?\n')
+                print()
                 if copy_seed == 'Yes' or copy_seed == 'yes':
                     copy()
                     print('Your seed has been copied.\n')
@@ -167,9 +170,11 @@ def random_gen():
             elif question == 'No' or question == 'no':
                 print()
             seedquestion = input('Would you like to know your seed?\n')
+            print()
             if seedquestion == 'Yes' or seedquestion == 'yes':
                 print('Your seed is: ', seed)
-                copy_seed = input('Would you like to copy the seed?\n')
+                copy_seed = input('Would you like to copy the seed?')
+                print()
                 if copy_seed == 'Yes' or copy_seed == 'yes':
                     copy()
                     print('Your seed has been copied.\n')
