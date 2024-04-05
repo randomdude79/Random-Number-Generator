@@ -1,17 +1,42 @@
-import statistics
 import time
+import statistics
 import pyperclip
+from better_profanity import profanity
 
+global profanitye
+global profanityf
+
+profanitye = False
+profanityf = False
+
+def detect_profanitye(email):
+    global profanitye
+    profanitye = bool(profanity.contains_profanity(email))
+    if profanitye:
+        email = '*' * len(email)
+    return email
+
+def detect_profanityf(feedback):
+    global profanityf
+    profanityf = bool(profanity.contains_profanity(feedback))
+    if profanityf:
+        feedback = '*' * len(feedback)
+    return feedback
+
+
+seed = []
 numbersList = []
 
-
-def copy():
+def seedConv(seed):
+    return sum(ord(char) for char in seed)
+    
+def copy(seed):
     try:
         if 'seed' in globals():
             pyperclip.copy(seed)
-            print('Copied to clipboard:', seed, '\n')
+            print('Copied to clipboard:', seed)
         else:
-            print('Variable "seed" is not defined.\n')
+            print('Variable "seed" is not defined.')
     except Exception as e:
         print('An error occurred while copying to clipboard:', e)
 
@@ -26,7 +51,7 @@ def animate():
         if i <= 90:
             time.sleep(0.1)
         else:
-            time.sleep(0.1 + (i - 90) * 0.075)
+            time.sleep(0.1 + (i - 90) * 0.05)
         print(f"\r{i}% ", end="")
     print("\r100%")
 
@@ -43,6 +68,13 @@ def is_an_integer(s):
     except ValueError:
         return False
 
+def is_a_string(seed):
+    try:
+        str(seed)
+        return True
+    except ValueError:
+        return False
+
 
 def get_int(prompt):
     i = input(prompt)
@@ -50,31 +82,33 @@ def get_int(prompt):
         print('-0 is not an integer. Please try again.')
         print()
         i = input(prompt)
-    while i == "//clear":
+    while i == "clear":
         clear()
         print('Console cleared!\n')
         while True:
             random_gen()
-    while i == "//exit":
+    while i == "exit":
         exit_program()
-    while i == "//feedback":
+    while i == "feedback":
         print()
         feedback = input('What is your feedback?\n')
         print()
         email = input(
             'What is your email? We will use this only to respond to you.\n')
+        email = detect_profanitye(email)
+        feedback = detect_profanityf(feedback)
         try:
             with open('feedback.txt', 'a') as feed:
                 feed.write(feedback + '\n' + 'Email:' + email + '\n' + '\n')
                 print()
                 print('Thank you for your feedback! We will take a look at it.')
                 print()
-                exit_input = input('Would you like to exit?\n')
-                if exit_input == 'Yes' or exit_input == 'yes':
-                    exit_program()
-                if exit_input == 'No' or exit_input == 'no':
-                    while True:
-                        random_gen()
+            exit_input = input('Would you like to exit?\n')
+            if exit_input == 'Yes' or exit_input == 'yes':
+                exit_program()
+            if exit_input == 'No' or exit_input == 'no':
+                while True:
+                    random_gen()
         except Exception:
             print('Something went wrong.')
             random_gen()
@@ -94,11 +128,15 @@ def random_gen():
     print()
     number2 = get_int('Choose your second number.\n')
     print()
-    seedquestion0 = input('Would you like to use a set seed?\n')
+    seedquestion0 = input('Would you like to use a seed?\n')
     print()
     if seedquestion0 == 'Yes' or seedquestion0 == 'yes':
-        seed = get_int('What is your seed?\n')
+        seed = input('What is your seed?\n')
         print()
+        if is_a_string(seed):
+            seed = seedConv(seed)
+        elif is_an_integer(seed):
+            seed = int(seed)
         random.seed(seed)
     elif seedquestion0 == 'No' or seedquestion0 == 'no':
         seed = random.randint(0, 70368744177664)
@@ -128,14 +166,11 @@ def random_gen():
             elif question == 'No' or question == 'no':
                 print()
             seedquestion = input('Would you like to know your seed?\n')
-            print()
             if seedquestion == 'Yes' or seedquestion == 'yes':
                 print('Your seed is: ', seed)
-                print()
                 copy_seed = input('Would you like to copy the seed?\n')
-                print()
                 if copy_seed == 'Yes' or copy_seed == 'yes':
-                    copy()
+                    copy(seed)
                     print('Your seed has been copied.\n')
                     while True:
                         random_gen()
@@ -170,13 +205,11 @@ def random_gen():
             elif question == 'No' or question == 'no':
                 print()
             seedquestion = input('Would you like to know your seed?\n')
-            print()
             if seedquestion == 'Yes' or seedquestion == 'yes':
                 print('Your seed is: ', seed)
-                copy_seed = input('Would you like to copy the seed?')
-                print()
+                copy_seed = input('Would you like to copy the seed?\n')
                 if copy_seed == 'Yes' or copy_seed == 'yes':
-                    copy()
+                    copy(seed)
                     print('Your seed has been copied.\n')
                     while True:
                         random_gen()
