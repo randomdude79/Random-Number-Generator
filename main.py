@@ -1,13 +1,17 @@
-import time
-import statistics
-import pyperclip
 from better_profanity import profanity
+import pyperclip
+import statistics
+import time
+from config import version
 
+global current_version
 global profanitye
 global profanityf
 
+code_version = '1.6.0'
 profanitye = False
 profanityf = False
+
 
 def detect_profanitye(email):
     global profanitye
@@ -15,6 +19,7 @@ def detect_profanitye(email):
     if profanitye:
         email = '*' * len(email)
     return email
+
 
 def detect_profanityf(feedback):
     global profanityf
@@ -27,18 +32,11 @@ def detect_profanityf(feedback):
 seed = []
 numbersList = []
 
-def seedConv(seed):
-    return sum(ord(char) for char in seed)
-    
+
 def copy(seed):
-    try:
-        if 'seed' in globals():
-            pyperclip.copy(seed)
-            print('Copied to clipboard:', seed)
-        else:
-            print('Variable "seed" is not defined.')
-    except Exception as e:
-        print('An error occurred while copying to clipboard:', e)
+    seed_str = str(seed)
+    pyperclip.copy(seed_str)
+    print("Seed copied to clipboard.")
 
 
 def clear():
@@ -68,13 +66,6 @@ def is_an_integer(s):
     except ValueError:
         return False
 
-def is_a_string(seed):
-    try:
-        str(seed)
-        return True
-    except ValueError:
-        return False
-
 
 def get_int(prompt):
     i = input(prompt)
@@ -87,6 +78,23 @@ def get_int(prompt):
         print('Console cleared!\n')
         while True:
             random_gen()
+    while i == 'updates':
+        with open('UpdateLog.txt', 'r') as f:
+            print(f.read()) 
+            print('Current version: ' + code_version)
+            while True:
+                random_gen()
+    # while i == 'update':
+    #  if code_version != version:
+    #      print(
+    #          'You need to update to the latest version! Update here: https://replit.com/@sashacraftyshar/Random-Number-Generator#main.py'
+    #      )
+    #      while True:
+    #          random_gen()
+    #  else:
+    #      print('You are up to date!')
+    #      while True:
+    #          random_gen()
     while i == "exit":
         exit_program()
     while i == "feedback":
@@ -101,7 +109,8 @@ def get_int(prompt):
             with open('feedback.txt', 'a') as feed:
                 feed.write(feedback + '\n' + 'Email:' + email + '\n' + '\n')
                 print()
-                print('Thank you for your feedback! We will take a look at it.')
+                print(
+                    'Thank you for your feedback! We will take a look at it.')
                 print()
             exit_input = input('Would you like to exit?\n')
             if exit_input == 'Yes' or exit_input == 'yes':
@@ -133,13 +142,9 @@ def random_gen():
     if seedquestion0 == 'Yes' or seedquestion0 == 'yes':
         seed = input('What is your seed?\n')
         print()
-        if is_a_string(seed):
-            seed = seedConv(seed)
-        elif is_an_integer(seed):
-            seed = int(seed)
         random.seed(seed)
     elif seedquestion0 == 'No' or seedquestion0 == 'no':
-        seed = random.randint(0, 70368744177664)
+        seed = random.randint(-9223372036854775808, 9223372036854775807)
         random.seed(seed)
     amount = get_int('How many numbers do you want to generate?\n')
     print()
@@ -171,7 +176,6 @@ def random_gen():
                 copy_seed = input('Would you like to copy the seed?\n')
                 if copy_seed == 'Yes' or copy_seed == 'yes':
                     copy(seed)
-                    print('Your seed has been copied.\n')
                     while True:
                         random_gen()
                 else:
@@ -210,7 +214,6 @@ def random_gen():
                 copy_seed = input('Would you like to copy the seed?\n')
                 if copy_seed == 'Yes' or copy_seed == 'yes':
                     copy(seed)
-                    print('Your seed has been copied.\n')
                     while True:
                         random_gen()
                 else:
