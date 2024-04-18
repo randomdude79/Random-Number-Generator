@@ -4,9 +4,7 @@ import statistics
 import time
 from config import version
 
-global current_version
-global profanitye
-global profanityf
+global randomInt1, randomInt2, seed, numbersList
 
 code_version = '1.6.0'
 profanitye = False
@@ -84,17 +82,6 @@ def get_int(prompt):
             print('Current version: ' + code_version)
             while True:
                 random_gen()
-    # while i == 'update':
-    #  if code_version != version:
-    #      print(
-    #          'You need to update to the latest version! Update here: https://replit.com/@sashacraftyshar/Random-Number-Generator#main.py'
-    #      )
-    #      while True:
-    #          random_gen()
-    #  else:
-    #      print('You are up to date!')
-    #      while True:
-    #          random_gen()
     while i == "exit":
         exit_program()
     while i == "feedback":
@@ -129,14 +116,16 @@ def get_int(prompt):
 
 
 def random_gen():
-    global randomInt1
-    global seed
-    global randomInt2
+    global randomInt1, randomInt2, seed, numbersList
     import random
-    number1 = get_int('Choose your first number.\n')
-    print()
-    number2 = get_int('Choose your second number.\n')
-    print()
+    
+    # Reset variables at the beginning of the function
+    randomInt1 = None
+    randomInt2 = None
+    seed = None
+    numbersList = []
+
+    # Generate a new random seed for each function call
     seedquestion0 = input('Would you like to use a seed?\n')
     print()
     if seedquestion0 == 'Yes' or seedquestion0 == 'yes':
@@ -146,6 +135,12 @@ def random_gen():
     elif seedquestion0 == 'No' or seedquestion0 == 'no':
         seed = random.randint(-9223372036854775808, 9223372036854775807)
         random.seed(seed)
+
+    # Rest of the function remains unchanged...
+    number1 = get_int('Choose your first number.\n')
+    print()
+    number2 = get_int('Choose your second number.\n')
+    print()
     amount = get_int('How many numbers do you want to generate?\n')
     print()
     number1 = int(number1)
