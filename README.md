@@ -24,5 +24,5 @@ Follow the prompts to choose the range of numbers, specify a seed (if desired), 
 The program provides options to clear the console, exit the program, and provide feedback.  
 After generating random numbers, it offers the option to calculate and display the average of all generated numbers.  
 
-### [Credits](Credits.md)
-### [Updates](UpdateLog.md)
+### [Credits](/noncode/Credits.md)
+### [Updates](/noncode/UpdateLog.md)
