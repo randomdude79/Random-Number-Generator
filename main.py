@@ -233,3 +233,5 @@ def random_gen():
 
 while True:
     random_gen()
+
+# Huge thanks to MidnightCyber for bug fixes!
