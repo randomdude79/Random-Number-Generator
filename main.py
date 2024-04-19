@@ -6,7 +6,7 @@ from config import version
 
 global randomInt1, randomInt2, seed, numbersList
 
-code_version = '1.6.0'
+code_version = '1.6.1'
 profanitye = False
 profanityf = False
 
