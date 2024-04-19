@@ -77,7 +77,7 @@ def get_int(prompt):
         while True:
             random_gen()
     while i == 'updates':
-        with open('UpdateLog.txt', 'r') as f:
+        with open('/noncode/UpdateLog.txt', 'r') as f:
             print(f.read()) 
             print('Current version: ' + code_version)
             while True:
