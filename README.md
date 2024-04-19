@@ -1,5 +1,5 @@
 # Random Number Generator
-![logo](logo.png)
+![logo](/ncf/logo.png)
 This code defines a simple Python program that generates a random number within a user-defined range. It also includes functionality for providing feedback and exiting the program. Here's a breakdown of how it works:
 
 Function Definitions:
