@@ -26,3 +26,4 @@ After generating random numbers, it offers the option to calculate and display t
 
 ### [Credits](/noncode/Credits.md)
 ### [Updates](/noncode/UpdateLog.md)
+### [Back to top](#random-number-generator)
