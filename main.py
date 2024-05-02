@@ -1,10 +1,8 @@
 from better_profanity import profanity
 import statistics
-from config import version
 
 global randomInt1, randomInt2, seed, numbersList
 
-code_version = '1.6.1'
 profanitye = False
 profanityf = False
 
@@ -67,7 +65,7 @@ def get_int(prompt):
     while i == 'updates':
         with open('noncode/UpdateLog.txt', 'r') as f:
             print(f.read())
-            print('Current version: ' + code_version)
+            print('Current version: 1.6.2.2')
             print(
                 'For more, check out https://github.com/randomdude79/Random-Number-Generator'
             )
