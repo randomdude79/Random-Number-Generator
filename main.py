@@ -1,7 +1,5 @@
 from better_profanity import profanity
-import pyperclip
 import statistics
-import time
 from config import version
 
 global randomInt1, randomInt2, seed, numbersList
@@ -32,24 +30,14 @@ numbersList = []
 
 
 def copy(seed):
-    seed_str = str(seed)
-    pyperclip.copy(seed_str)
-    print("Seed copied to clipboard.")
+    with open('seed.txt', 'w') as s:
+        s.write(str(seed))
+        print('Check seed.txt for your seed')
 
 
 def clear():
     import os
     os.system('clear')
-
-
-def animate():
-    for i in range(101):
-        if i <= 90:
-            time.sleep(0.1)
-        else:
-            time.sleep(0.1 + (i - 90) * 0.05)
-        print(f"\r{i}% ", end="")
-    print("\r100%")
 
 
 def exit_program():
@@ -77,9 +65,12 @@ def get_int(prompt):
         while True:
             random_gen()
     while i == 'updates':
-        with open('/noncode/UpdateLog.txt', 'r') as f:
-            print(f.read()) 
+        with open('noncode/UpdateLog.txt', 'r') as f:
+            print(f.read())
             print('Current version: ' + code_version)
+            print(
+                'For more, check out https://github.com/randomdude79/Random-Number-Generator'
+            )
             while True:
                 random_gen()
     while i == "exit":
@@ -118,7 +109,7 @@ def get_int(prompt):
 def random_gen():
     global randomInt1, randomInt2, seed, numbersList
     import random
-    
+
     # Reset variables at the beginning of the function
     randomInt1 = None
     randomInt2 = None
@@ -129,14 +120,11 @@ def random_gen():
     seedquestion0 = input('Would you like to use a seed?\n')
     print()
     if seedquestion0 == 'Yes' or seedquestion0 == 'yes':
-        seed = input('What is your seed?\n')
-        print()
+        seed = input('Enter a seed:\n')
         random.seed(seed)
     elif seedquestion0 == 'No' or seedquestion0 == 'no':
         seed = random.randint(-9223372036854775808, 9223372036854775807)
         random.seed(seed)
-
-    # Rest of the function remains unchanged...
     number1 = get_int('Choose your first number.\n')
     print()
     number2 = get_int('Choose your second number.\n')
@@ -147,9 +135,6 @@ def random_gen():
     number2 = int(number2)
     if number1 > number2:
         if amount > 1:
-            if amount > 50:
-                print('This might take a while.\n')
-                animate()
             print('Your random numbers are:')
             for i in range(amount):
                 randomInt1 = random.randint(number2, number1)
@@ -186,9 +171,6 @@ def random_gen():
         print()
     if number1 < number2:
         if amount > 1:
-            if amount > 50:
-                print('This might take a while.\n')
-                animate()
             print('Your random numbers are:')
             for i in range(amount):
                 randomInt2 = random.randint(number1, number2)
@@ -233,5 +215,3 @@ def random_gen():
 
 while True:
     random_gen()
-
-# Huge thanks to MidnightCyber for bug fixes!
