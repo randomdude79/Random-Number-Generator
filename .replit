@@ -1,3 +1,4 @@
+# Please do not change this file, but you can copy and paste it.
 entrypoint = "main.py"
 modules = ["python-3.10:v18-20230807-322e88b"]
 

@@ -61,16 +61,16 @@ def get_int(prompt):
         clear()
         print('Console cleared!\n')
         while True:
-            random_gen()
+            random_gen(username)
     while i == 'updates':
         with open('noncode/UpdateLog.txt', 'r') as f:
             print(f.read())
-            print('Current version: 1.6.2.2')
+            print('Current version: 1.6.3')
             print(
                 'For more, check out https://github.com/randomdude79/Random-Number-Generator'
             )
             while True:
-                random_gen()
+                random_gen(username)
     while i == "exit":
         exit_program()
     while i == "feedback":
@@ -93,10 +93,10 @@ def get_int(prompt):
                 exit_program()
             if exit_input == 'No' or exit_input == 'no':
                 while True:
-                    random_gen()
+                    random_gen(username)
         except Exception:
             print('Something went wrong.')
-            random_gen()
+            random_gen(username)
 
     while not is_an_integer(i):
         i = input(f'You have entered "{i}".' +
@@ -104,7 +104,7 @@ def get_int(prompt):
     return int(i)
 
 
-def random_gen():
+def random_gen(username):
     global randomInt1, randomInt2, seed, numbersList
     import random
 
@@ -113,7 +113,7 @@ def random_gen():
     randomInt2 = None
     seed = None
     numbersList = []
-
+    print(f'Hello, {username}!')
     # Generate a new random seed for each function call
     seedquestion0 = input('Would you like to use a seed?\n')
     print()
@@ -155,13 +155,13 @@ def random_gen():
                 if copy_seed == 'Yes' or copy_seed == 'yes':
                     copy(seed)
                     while True:
-                        random_gen()
+                        random_gen(username)
                 else:
                     while True:
-                        random_gen()
+                        random_gen(username)
             elif seedquestion == 'No' or seedquestion == 'no':
                 while True:
-                    random_gen()
+                    random_gen(username)
         if amount == 1:
             randomInt1 = random.randint(number2, number1)
             print('Your random number is:\n', randomInt1)
@@ -190,13 +190,13 @@ def random_gen():
                 if copy_seed == 'Yes' or copy_seed == 'yes':
                     copy(seed)
                     while True:
-                        random_gen()
+                        random_gen(username)
                 else:
                     while True:
-                        random_gen()
+                        random_gen(username)
             elif seedquestion == 'No' or seedquestion == 'no':
                 while True:
-                    random_gen()
+                    random_gen(username)
         if amount == 1:
             randomInt2 = random.randint(number1, number2)
             print('Your random number is:\n', randomInt2)
@@ -204,12 +204,12 @@ def random_gen():
         print()
     if number1 == number2:
         print('Your numbers are the same, please try again\n')
-        random_gen()
+        random_gen(username)
     if number1 == 69 and number2 == 420:
         print('Did you have to do that?\n')
     if number1 == 420 and number2 == 69:
         print('Did you have to do that?\n')
 
-
+username = input('What username would you like to use?\n')
 while True:
-    random_gen()
+    random_gen(username)
