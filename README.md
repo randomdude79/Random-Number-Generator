@@ -1,29 +1,39 @@
 # Random Number Generator
 ![logo](/noncode/logo.png)
-This code defines a simple Python program that generates a random number within a user-defined range. It also includes functionality for providing feedback and exiting the program. Here's a breakdown of how it works:
 
-Function Definitions:
+This Python program generates random numbers based on user input. It allows users to specify a range of numbers and the number of random numbers to generate. The program also supports the use of a seed for deterministic random number generation.
 
-`detect_profanity()`: This function will detect profanity in the feedback or email input.
-`clear()`: This function uses the `os.system('clear')` command to clear the console screen. It is used to provide a clean interface when running the program.  
-`animate(key)`: This function creates a simple animation effect using `sys.stdout.write()` and `time.sleep()`. The key parameter determines the intensity of the animation.  
-`exit()`: This function uses `sys.exit()` to exit the program cleanly.  
-`is_an_integer(s)`: This function checks if a given string `s` can be converted to an integer. It returns `True` if conversion is successful, otherwise `False`.  
-`get_int(prompt)`: This function repeatedly asks the user for input until they enter a valid integer. It handles special commands like `/clear` to clear the console and `/exit` to exit the program.  
+## Features
 
-Main Function `random_gen()`:  
+- Generates random numbers within a specified range.
+- Supports the use of a seed for deterministic results.
+- Handles user input validation to ensure that only integers are accepted.
+- Detects and filters profanity in user email and feedback inputs.
 
-This function is the core of the random number generation process. It first prompts the user to choose two numbers to define a range, and optionally, a seed value for the random number generator.  
-Based on the user's input, it generates a specified amount of random numbers within the defined range using `random.randint()`.  
-It then offers the option to calculate and display the average of all generated numbers using `statistics.mean()`.  
+## Getting Started
 
-Usage:  
+1. Clone the repository to your local machine.
+2. Install the required dependencies using `pip install -r requirements.txt`.
+3. Run the program using `python random_number_generator.py`.
+4. Follow the on-screen instructions to generate random numbers.
 
-To use the program, run it in a Python environment.  
-Follow the prompts to choose the range of numbers, specify a seed (if desired), and select the amount of random numbers to generate.  
-The program provides options to clear the console, exit the program, and provide feedback.  
-After generating random numbers, it offers the option to calculate and display the average of all generated numbers.  
+## Usage
 
-### [Credits](/noncode/Credits.md)
-### [Updates](/noncode/UpdateLog.md)
-### [Back to top](#random-number-generator)
+- Upon running the program, you will be prompted to enter a username.
+- You will then be asked if you want to use a seed for random number generation.
+- Next, you will be prompted to choose a range of numbers (minimum and maximum) and the number of random numbers to generate.
+- The program will generate the random numbers and display them on the screen.
+- You can also choose to find the average of the generated numbers and copy the seed used for generation.
+
+## Feedback
+
+- Users can provide feedback on the program by entering their feedback and email address.
+- The program detects and filters profanity in both the feedback and email inputs.
+
+## Contributions
+
+- Contributions to the program are welcome. Please fork the repository, make your changes, and submit a pull request.
+
+## License
+
+- This project is licensed under the MIT License. See the `LICENSE` file for details.
