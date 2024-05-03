@@ -223,6 +223,9 @@ username = input('What username would you like to use?\n')
 if username == '':
     username = random.choice(usernameWords) + random.choice(usernameWords)
 
+if profanity.contains_profanity(username):
+    username = 'TheCommonCusser'
+
 else:
     username = username
 while True:
