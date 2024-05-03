@@ -3,7 +3,6 @@ import statistics
 
 global randomInt1, randomInt2, seed, numbersList
 
-# This is a test
 profanitye = False
 profanityf = False
 
