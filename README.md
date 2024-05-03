@@ -14,7 +14,7 @@ This Python program generates random numbers based on user input. It allows user
 
 1. Clone the repository to your local machine.
 2. Install the required dependencies using `pip install -r requirements.txt`.
-3. Run the program using `python random_number_generator.py`.
+3. Run the program using `python main.py`.
 4. Follow the on-screen instructions to generate random numbers.
 
 ## Usage
