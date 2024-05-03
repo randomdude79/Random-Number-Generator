@@ -1,7 +1,5 @@
 import random
 import statistics
-import pyperclip
-import time
 import os
 import sys
 
@@ -10,12 +8,6 @@ numbers_list = []
 def clear():
     os.system('clear')
 
-def animate():
-    for _ in range(2):
-        for text in ['Generating your numbers', 'Cleaning up', 'Almost done']:
-            sys.stdout.write(f'{text}{"." * len(text) < 16}\r')
-            time.sleep(0.75)
-    sys.stdout.write(' ' * 32 + '\r')
 
 def exit_program():
     sys.exit()
@@ -64,8 +56,7 @@ def random_gen():
     if input('Would you like to find the average of all your numbers? (Yes/No)\n').lower() == 'yes':
         print('\nThe average of all your numbers is:', statistics.mean(numbers_list), '\n')
     if input('Would you like to know your seed? (Yes/No)\n').lower() == 'yes':
-        pyperclip.copy(str(seed))
-        print('Your seed has been copied to the clipboard.\n')
+        print(seed)
     while True:
         random_gen()
 
