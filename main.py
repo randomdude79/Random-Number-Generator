@@ -1,11 +1,13 @@
 from better_profanity import profanity
 import statistics
+import random
 
 global randomInt1, randomInt2, seed, numbersList
 
 profanitye = False
 profanityf = False
 
+usernameWords = ['Smart', 'Cool', 'Amazing', 'Awesome', 'Epic', 'Great', 'Fantastic', 'Nice', 'Good', 'Bad', 'Ugly', 'Stupid', 'Dumb', 'Crazy', 'Funny', 'Silly', 'Weird', 'Cute', 'Bear', 'Bird', 'Cat', 'Dog', 'Fish', 'Horse', 'Lion', 'Tiger', 'Wolf', 'Mouse', 'Rabbit', 'Fox']
 
 def detect_profanitye(email):
     global profanitye
@@ -106,7 +108,6 @@ def get_int(prompt):
 
 def random_gen(username):
     global randomInt1, randomInt2, seed, numbersList
-    import random
 
     # Reset variables at the beginning of the function
     randomInt1 = None
@@ -219,5 +220,10 @@ def random_gen(username):
         print('Did you have to do that?\n')
 
 username = input('What username would you like to use?\n')
+if username == '':
+    username = random.choice(usernameWords) + random.choice(usernameWords)
+
+else:
+    username = username
 while True:
     random_gen(username)
