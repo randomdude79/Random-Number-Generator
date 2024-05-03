@@ -65,7 +65,7 @@ def get_int(prompt):
     while i == 'updates':
         with open('noncode/UpdateLog.txt', 'r') as f:
             print(f.read())
-            print('Current version: 1.6.3')
+            print('Current version: 1.7')
             print(
                 'For more, check out https://github.com/randomdude79/Random-Number-Generator'
             )
@@ -111,7 +111,7 @@ def random_gen(username):
     # Reset variables at the beginning of the function
     randomInt1 = None
     randomInt2 = None
-    seed = None
+    seed1 = seed2 = seed3 = seed4 = ''
     numbersList = []
     print(f'Hello, {username}!')
     # Generate a new random seed for each function call
@@ -121,7 +121,15 @@ def random_gen(username):
         seed = input('Enter a seed:\n')
         random.seed(seed)
     elif seedquestion0 == 'No' or seedquestion0 == 'no':
-        seed = random.randint(-9223372036854775808, 9223372036854775807)
+        for i in range(5):
+            seed1 += str(random.randint(0, 9))
+        for i in range(5):
+            seed2 += str(random.randint(0, 9))
+        for i in range(5):
+            seed3 += str(random.randint(0, 9))
+        for i in range(5):
+            seed4 += str(random.randint(0, 9))
+        seed = seed1 + seed2 + seed3 + seed4
         random.seed(seed)
     number1 = get_int('Choose your first number.\n')
     print()
