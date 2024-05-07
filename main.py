@@ -120,6 +120,9 @@ def random_gen(username):
     print()
     if seedquestion0 == 'Yes' or seedquestion0 == 'yes':
         seed = input('Enter a seed:\n')
+        seed.replace('sd/num/.seedDB=', '')
+        seed.replace('=/sdTAG', '')
+        seednum = 'sd/num/.seedDB=' + seed + '=/sdTAG'
         random.seed(seed)
     elif seedquestion0 == 'No' or seedquestion0 == 'no':
         for i in range(5):
@@ -131,6 +134,7 @@ def random_gen(username):
         for i in range(5):
             seed4 += str(random.randint(0, 9))
         seed = seed1 + seed2 + seed3 + seed4
+        seednum = 'sd/num/.seedDB=' + seed1 + seed2 + seed3 + seed4 + '=/sdTAG'
         random.seed(seed)
     number1 = get_int('Choose your first number.\n')
     print()
@@ -160,6 +164,9 @@ def random_gen(username):
             seedquestion = input('Would you like to know your seed?\n')
             if seedquestion == 'Yes' or seedquestion == 'yes':
                 print('Your seed is: ', seed)
+                print('Seed tag is: ', seednum)
+                with open('seedDB.txt', 'a') as s:
+                    s.write(str(seednum) + '\n')
                 copy_seed = input('Would you like to copy the seed?\n')
                 if copy_seed == 'Yes' or copy_seed == 'yes':
                     copy(seed)
@@ -195,6 +202,9 @@ def random_gen(username):
             seedquestion = input('Would you like to know your seed?\n')
             if seedquestion == 'Yes' or seedquestion == 'yes':
                 print('Your seed is: ', seed)
+                print('Seed tag is: ', seednum)
+                with open('seedDB.txt', 'a') as s:
+                    s.write(str(seednum) + '\n')
                 copy_seed = input('Would you like to copy the seed?\n')
                 if copy_seed == 'Yes' or copy_seed == 'yes':
                     copy(seed)
