@@ -120,8 +120,8 @@ def random_gen(username):
     print()
     if seedquestion0 == 'Yes' or seedquestion0 == 'yes':
         seed = input('Enter a seed:\n')
-        seed.replace('sd/num/.seedDB=', '')
-        seed.replace('=/sdTAG', '')
+        seed = seed.replace('sd/num/.seedDB=', '')
+        seed = seed.replace('=/sdTAG', '')
         seednum = 'sd/num/.seedDB=' + seed + '=/sdTAG'
         random.seed(seed)
     elif seedquestion0 == 'No' or seedquestion0 == 'no':
