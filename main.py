@@ -73,6 +73,22 @@ def get_int(prompt):
             )
             while True:
                 random_gen(username)
+
+    while i == "bruteF":
+        with open('seedDB.txt', 'a') as sdb:
+            for i in range(100):
+                seed1 = str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9))
+                seed2 = str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9))
+                seed3 = str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9))
+                seed4 = str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9))
+                seed = seed1 + seed2 + seed3 + seed4
+                random.seed(seed)
+                seednum = 'sd/num/.seedDB=' + seed1 + seed2 + seed3 + seed4 + '=/sdTAG'
+                sdb.write(f"Generated numbers with tag: {seednum}\n")
+                for _ in range(5):
+                    sdb.write(str(random.randint(1, 100)) + "\n")
+                sdb.write("\n")
+            print('Check seedDB.txt for your seeds and generated numbers.')
     while i == "exit":
         exit_program()
     while i == "feedback":
