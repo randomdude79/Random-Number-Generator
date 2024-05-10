@@ -67,7 +67,7 @@ def get_int(prompt):
     while i == 'updates':
         with open('noncode/UpdateLog.txt', 'r') as f:
             print(f.read())
-            print('Current version: 1.7')
+            print('Current version: 1.7.5.2')
             print(
                 'For more, check out https://github.com/randomdude79/Random-Number-Generator'
             )
