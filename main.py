@@ -89,6 +89,8 @@ def get_int(prompt):
                     sdb.write(str(random.randint(1, 100)) + "\n")
                 sdb.write("\n")
             print('Check seedDB.txt for your seeds and generated numbers.')
+            while True:
+                random_gen(username)
     while i == "exit":
         exit_program()
     while i == "feedback":
