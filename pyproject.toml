@@ -1,8 +1,7 @@
 [tool.poetry]
 name = "repl-nix-random-number-generator"
-version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["Alexander Baranov sasha.craftyshark@gmail.com"]
 readme = "README.md"
 packages = [{include = "repl_nix_random_number_generator"}]
 
