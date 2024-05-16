@@ -1,6 +1,13 @@
 # Updates
 
+Scheduled:  
+**1.15** Final release *Dec 31st, 2024*
 
+Past:  
+**1.10.X** Finilizing release
+**1.9.X** Update script  
+**1.8.X** Seed Database  
+**1.7.X** Seeds  
 **1.6.X** Adding update script  
 **1.6.0** Feedback profanity  
 **1.5.X** Seed function  
