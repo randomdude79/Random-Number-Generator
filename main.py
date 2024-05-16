@@ -70,7 +70,7 @@ def get_int(prompt):
     while i == 'updates':
         with open('noncode/UpdateLog.txt', 'r') as f:
             print(f.read())
-            print('Current version: 1.9.1')
+            print('Current version: 1.10')
             print(
                 'For more, check out https://github.com/randomdude79/Random-Number-Generator'
             )
@@ -80,11 +80,17 @@ def get_int(prompt):
         clear()
         print('Updating...')
         time.sleep(1)
+        os.system('git restore main.py')
+        os.system('git restore seed.txt')
+        os.system('git restore feedback.txt')
+        os.system('git restore LICENSE')
         os.system('git pull')
         print('Restarting...')
         time.sleep(1)
+        clear()
         os.system('python main.py')
-
+        while True:
+            random_gen(username)
     while i == "bruteF":
         with open('seedDB.txt', 'a') as sdb:
             for i in range(100000):
