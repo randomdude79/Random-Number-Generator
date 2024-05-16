@@ -3,6 +3,7 @@ import statistics
 import random
 import os
 import time
+import sys
 
 
 global randomInt1, randomInt2, seed, numbersList, version
@@ -46,7 +47,6 @@ def clear():
 
 
 def exit_program():
-    import sys
     sys.exit()
 
 
@@ -103,6 +103,7 @@ def get_int(prompt):
                 seed4 = str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9))
                 seed = int(seed1 + seed2 + seed3 + seed4)
                 random.seed(seed)
+                sys.stdout.write(f'{(i + 1) / 1000}% of numbers generated!  \r')
                 sdb.write(f"Generated numbers with tag: {seed}\n")
                 for _ in range(5):
                     sdb.write(str(random.randint(1, 100)) + "\n")

@@ -1,5 +1,6 @@
 [tool.poetry]
 name = "repl-nix-random-number-generator"
+version = "1"
 description = ""
 authors = ["Alexander Baranov sasha.craftyshark@gmail.com"]
 readme = "README.md"
