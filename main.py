@@ -101,7 +101,7 @@ def get_int(prompt):
                 seed2 = str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9))
                 seed3 = str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9))
                 seed4 = str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9))
-                seed = seed1 + seed2 + seed3 + seed4
+                seed = int(seed1 + seed2 + seed3 + seed4)
                 random.seed(seed)
                 sdb.write(f"Generated numbers with tag: {seed}\n")
                 for _ in range(5):
@@ -167,7 +167,7 @@ def random_gen(username):
             seed3 += str(random.randint(0, 9))
         for i in range(5):
             seed4 += str(random.randint(0, 9))
-        seed = seed1 + seed2 + seed3 + seed4
+        seed = int(seed1 + seed2 + seed3 + seed4)
         random.seed(seed)
     number1 = get_int('Choose your first number.\n')
     print()
