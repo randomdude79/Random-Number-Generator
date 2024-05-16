@@ -9,7 +9,7 @@ import sys
 global randomInt1, randomInt2, seed, numbersList, version
 
 
-version = "1.10.7"
+version = "1.10.8"
 profanitye = False
 profanityf = False
 
@@ -42,7 +42,6 @@ def copy(seed):
 
 
 def clear():
-    import os
     os.system('clear')
 
 
@@ -157,9 +156,6 @@ def get_int(prompt):
 
 
 def random_gen(username):
-    global randomInt1, randomInt2, seed, numbersList
-
-    # Reset variables at the beginning of the function
     randomInt1 = None
     randomInt2 = None
     seed1 = seed2 = seed3 = seed4 = ''
@@ -171,7 +167,7 @@ def random_gen(username):
     if seedquestion0 == 'Yes' or seedquestion0 == 'yes':
         seed = input('Enter a seed:\n')
         random.seed(seed)
-    elif seedquestion0 == 'No' or seedquestion0 == 'no':
+    else:
         for i in range(5):
             seed1 += str(random.randint(0, 9))
         for i in range(5):
