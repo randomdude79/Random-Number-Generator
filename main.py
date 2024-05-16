@@ -2,6 +2,7 @@ from better_profanity import profanity
 import statistics
 import random
 import os
+import time
 
 global randomInt1, randomInt2, seed, numbersList
 
@@ -75,11 +76,13 @@ def get_int(prompt):
             while True:
                 random_gen(username)
     while i == 'update':
+        clear()
         print('Updating...')
+        time.sleep(1)
         os.system('git pull')
         print('Restarting...')
+        time.sleep(1)
         os.system('python main.py')
-        clear()
 
     while i == "bruteF":
         with open('seedDB.txt', 'a') as sdb:
