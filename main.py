@@ -5,8 +5,10 @@ import os
 import time
 
 
-global randomInt1, randomInt2, seed, numbersList
+global randomInt1, randomInt2, seed, numbersList, version
 
+
+version = "1.10.2"
 profanitye = False
 profanityf = False
 
@@ -70,7 +72,7 @@ def get_int(prompt):
     while i == 'updates':
         with open('noncode/UpdateLog.txt', 'r') as f:
             print(f.read())
-            print('Current version: 1.10')
+            print(f'Current version: {version}')
             print(
                 'For more, check out https://github.com/randomdude79/Random-Number-Generator'
             )
@@ -85,9 +87,13 @@ def get_int(prompt):
         print('Restarting...')
         time.sleep(1)
         clear()
+        print(f'Current version: {version}')
         os.system('python main.py')
         while True:
             random_gen(username)
+    while i == "shell":
+        shellCommand = input('~/Random-Number-Generator$ ')
+        os.system(shellCommand)
     while i == "bruteF":
         with open('seedDB.txt', 'a') as sdb:
             for i in range(100000):
