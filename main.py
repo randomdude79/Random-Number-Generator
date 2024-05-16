@@ -4,6 +4,8 @@ import random
 import os
 import time
 
+# Just a quick test to see if the update works
+
 global randomInt1, randomInt2, seed, numbersList
 
 profanitye = False
@@ -79,7 +81,7 @@ def get_int(prompt):
         clear()
         print('Updating...')
         time.sleep(1)
-        os.system('git pull')
+        os.system('git fetch')
         print('Restarting...')
         time.sleep(1)
         os.system('python main.py')
