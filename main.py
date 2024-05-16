@@ -83,7 +83,7 @@ def get_int(prompt):
         clear()
         print('Updating...')
         time.sleep(1)
-        os.system('git fetch')
+        os.system('git pull')
         print('Restarting...')
         time.sleep(1)
         os.system('python main.py')
