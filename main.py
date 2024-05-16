@@ -6,15 +6,21 @@ import time
 import sys
 import readline
 
+global randomInt1, randomInt2, seed, numbersList, version, command_history
 
-global randomInt1, randomInt2, seed, numbersList, version
-
+command_history = [] # Define command_history globally
 
 version = "1.10.8"
 profanitye = False
 profanityf = False
 
 usernameWords = ['Brave', 'Cunning', 'Swift', 'Wise', 'Real' 'Large', 'Spiritual', 'Keen', 'Smart', 'Lion', 'Tiger', 'Eagle', 'Fox', 'Dog', 'Cat', 'Bear', 'Deer', 'Wolf', 'Horse', 'Cheetah', 'Elephant', 'Monkey', 'Panda']
+
+
+def clear_history():
+    command_history.clear()
+    readline.clear_history()
+    print("Command history cleared.")
 
 def detect_profanitye(email):
     global profanitye
@@ -108,17 +114,14 @@ def get_int(prompt):
         WHITE_BOLD = '\033[1;97m'
         RESET = '\033[0m'
 
-        # Initialize the command history list
-        command_history = []
-
         while True:
             try:
-                # Prompt with color and bold text
                 shellPrompt = f'{DARK_BLUE_BOLD}~/Random-Number-Generator{RESET}{WHITE_BOLD}$ {RESET}'
                 shellCommand = input(shellPrompt)
-
                 if shellCommand == 'kill':
                     os.kill(os.getpid(), 9)
+                elif shellCommand == 'clear_history':
+                    clear_history()
                 else:
                     os.system(shellCommand)
                     command_history.append(shellCommand)
