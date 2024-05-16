@@ -9,7 +9,7 @@ import sys
 global randomInt1, randomInt2, seed, numbersList, version
 
 
-version = "1.10.5"
+version = "1.10.7"
 profanitye = False
 profanityf = False
 
@@ -80,12 +80,26 @@ def get_int(prompt):
                 random_gen(username)
     while i == 'update':
         clear()
-        print('Updating...')
-        time.sleep(1)
+        for i in range(3):
+            sys.stdout.write('Updating   \r')
+            time.sleep(0.5)
+            sys.stdout.write('Updating.  \r')
+            time.sleep(0.5)
+            sys.stdout.write('Updating.. \r')
+            time.sleep(0.5)
+            sys.stdout.write('Updating...\r')
+            time.sleep(0.5)
         os.system('git restore *')
         os.system('git pull')
-        print('Restarting...')
-        time.sleep(1)
+        for i in range(3):
+            sys.stdout.write('Restarting   \r')
+            time.sleep(0.5)
+            sys.stdout.write('Restarting.  \r')
+            time.sleep(0.5)
+            sys.stdout.write('Restarting.. \r')
+            time.sleep(0.5)
+            sys.stdout.write('Restarting...\r')
+            time.sleep(0.5)
         clear()
         print(f'Current version: {version}')
         os.system('python main.py')
