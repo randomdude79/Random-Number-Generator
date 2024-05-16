@@ -8,11 +8,11 @@ import time
 global randomInt1, randomInt2, seed, numbersList, version
 
 
-version = "1.10.2"
+version = "1.10.5"
 profanitye = False
 profanityf = False
 
-usernameWords = ['Brave', 'Cunning', 'Swift', 'Wise', 'Real', 'Large', 'Spiritual', 'Lion', 'Tiger', 'Eagle', 'Fox', 'Dog', 'Cat', 'Bear', 'Deer', 'Wolf', 'Horse', 'Cheetah', 'Elephant', 'Monkey', 'Panda']
+usernameWords = ['Brave', 'Cunning', 'Swift', 'Wise', 'Real' 'Large', 'Spiritual', 'Keen', 'Smart', 'Lion', 'Tiger', 'Eagle', 'Fox', 'Dog', 'Cat', 'Bear', 'Deer', 'Wolf', 'Horse', 'Cheetah', 'Elephant', 'Monkey', 'Panda']
 
 def detect_profanitye(email):
     global profanitye
