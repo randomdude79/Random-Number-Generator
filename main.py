@@ -1,6 +1,7 @@
 from better_profanity import profanity
 import statistics
 import random
+import os
 
 global randomInt1, randomInt2, seed, numbersList
 
@@ -67,12 +68,18 @@ def get_int(prompt):
     while i == 'updates':
         with open('noncode/UpdateLog.txt', 'r') as f:
             print(f.read())
-            print('Current version: 1.7.6')
+            print('Current version: 1.9.1')
             print(
                 'For more, check out https://github.com/randomdude79/Random-Number-Generator'
             )
             while True:
                 random_gen(username)
+    while i == 'update':
+        print('Updating...')
+        os.system('git pull')
+        print('Restarting...')
+        os.system('python main.py')
+        clear()
 
     while i == "bruteF":
         with open('seedDB.txt', 'a') as sdb:
