@@ -4,6 +4,7 @@ import random
 import os
 import time
 import sys
+import readline
 
 
 global randomInt1, randomInt2, seed, numbersList, version
@@ -103,8 +104,28 @@ def get_int(prompt):
         print(f'Current version: {version}')
         os.system('python main.py')
     while i == "shell":
-        shellCommand = input('~/Random-Number-Generator$ ')
-        os.system(shellCommand)
+        DARK_BLUE_BOLD = '\033[1;34m'
+        WHITE_BOLD = '\033[1;97m'
+        RESET = '\033[0m'
+
+        # Initialize the command history list
+        command_history = []
+
+        while True:
+            try:
+                # Prompt with color and bold text
+                shellPrompt = f'{DARK_BLUE_BOLD}~/Random-Number-Generator{RESET}{WHITE_BOLD}$ {RESET}'
+                shellCommand = input(shellPrompt)
+
+                if shellCommand == 'kill':
+                    os.kill(os.getpid(), 9)
+                else:
+                    os.system(shellCommand)
+                    command_history.append(shellCommand)
+                    readline.add_history(shellCommand)
+            except KeyboardInterrupt:
+                print("\nExiting shell...")
+                break
     while i == "bruteF":
         with open('seedDB.txt', 'a') as sdb:
             for i in range(100000):
