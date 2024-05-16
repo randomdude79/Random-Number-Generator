@@ -10,7 +10,7 @@ global randomInt1, randomInt2, seed, numbersList
 profanitye = False
 profanityf = False
 
-usernameWords = ['Brave', 'Cunning', 'Swift', 'Wise', 'Lion', 'Tiger', 'Eagle', 'Fox', 'Dog', 'Cat', 'Bear', 'Deer', 'Wolf', 'Horse', 'Cheetah', 'Elephant', 'Monkey', 'Panda']
+usernameWords = ['Brave', 'Cunning', 'Swift', 'Wise', 'Real', 'Large', 'Spiritual', 'Lion', 'Tiger', 'Eagle', 'Fox', 'Dog', 'Cat', 'Bear', 'Deer', 'Wolf', 'Horse', 'Cheetah', 'Elephant', 'Monkey', 'Panda']
 
 def detect_profanitye(email):
     global profanitye
