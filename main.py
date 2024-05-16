@@ -76,7 +76,7 @@ def get_int(prompt):
 
     while i == "bruteF":
         with open('seedDB.txt', 'a') as sdb:
-            for i in range(100):
+            for i in range(100000):
                 seed1 = str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9))
                 seed2 = str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9))
                 seed3 = str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9)) + str(random.randint(0, 9))
