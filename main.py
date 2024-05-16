@@ -89,8 +89,6 @@ def get_int(prompt):
         clear()
         print(f'Current version: {version}')
         os.system('python main.py')
-        while True:
-            random_gen(username)
     while i == "shell":
         shellCommand = input('~/Random-Number-Generator$ ')
         os.system(shellCommand)
