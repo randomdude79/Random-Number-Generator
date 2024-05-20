@@ -14,7 +14,7 @@ version = "1.10.8"
 profanitye = False
 profanityf = False
 
-usernameWords = ['Brave', 'Cunning', 'Swift', 'Wise', 'Real' 'Large', 'Spiritual', 'Keen', 'Smart', 'Lion', 'Tiger', 'Eagle', 'Fox', 'Dog', 'Cat', 'Bear', 'Deer', 'Wolf', 'Horse', 'Cheetah', 'Elephant', 'Monkey', 'Panda']
+usernameWords = ['Brave', 'Cunning', 'Swift', 'Wise', 'Real', 'Large', 'Spiritual', 'Keen', 'Smart', 'Lion', 'Tiger', 'Eagle', 'Fox', 'Dog', 'Cat', 'Bear', 'Deer', 'Wolf', 'Horse', 'Cheetah', 'Elephant', 'Monkey', 'Panda']
 
 
 def clear_history():
@@ -110,6 +110,8 @@ def get_int(prompt):
         print(f'Current version: {version}')
         os.system('python main.py')
     while i == "shell":
+        command_history.clear()
+        readline.clear_history()
         DARK_BLUE_BOLD = '\033[1;34m'
         WHITE_BOLD = '\033[1;97m'
         RESET = '\033[0m'
@@ -120,6 +122,7 @@ def get_int(prompt):
                 shellCommand = input(shellPrompt)
                 if shellCommand == 'kill':
                     os.kill(os.getpid(), 9)
+                    break
                 elif shellCommand == 'clear_history':
                     clear_history()
                 else:
