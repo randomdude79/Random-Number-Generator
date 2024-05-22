@@ -85,30 +85,7 @@ def get_int(prompt):
             while True:
                 random_gen(username)
     while i == 'update':
-        clear()
-        for i in range(3):
-            sys.stdout.write('Updating   \r')
-            time.sleep(0.5)
-            sys.stdout.write('Updating.  \r')
-            time.sleep(0.5)
-            sys.stdout.write('Updating.. \r')
-            time.sleep(0.5)
-            sys.stdout.write('Updating...\r')
-            time.sleep(0.5)
-        os.system('git restore *')
-        os.system('git pull')
-        for i in range(3):
-            sys.stdout.write('Restarting   \r')
-            time.sleep(0.5)
-            sys.stdout.write('Restarting.  \r')
-            time.sleep(0.5)
-            sys.stdout.write('Restarting.. \r')
-            time.sleep(0.5)
-            sys.stdout.write('Restarting...\r')
-            time.sleep(0.5)
-        clear()
-        print(f'Current version: {version}')
-        os.system('python main.py')
+        os.system('python update.py')
     while i == "shell":
         command_history.clear()
         readline.clear_history()
