@@ -10,7 +10,7 @@ global randomInt1, randomInt2, seed, numbersList, version, command_history
 
 command_history = [] # Define command_history globally
 
-version = "1.11.4"
+version = "1.11.5"
 profanitye = False
 profanityf = False
 
@@ -85,6 +85,7 @@ def get_int(prompt):
             while True:
                 random_gen(username)
     while i == 'update':
+        clear()
         for i in range(3):
             sys.stdout.write('Updating   \r')
             time.sleep(0.5)
@@ -105,7 +106,9 @@ def get_int(prompt):
             time.sleep(0.5)
             sys.stdout.write('Restarting...\r')
             time.sleep(0.5)
-            
+        clear()
+        print(f'Version: {version}')
+        os.system('python main.py')
     while i == "shell":
         command_history.clear()
         readline.clear_history()
