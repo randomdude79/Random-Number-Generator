@@ -1,8 +1,8 @@
 from better_profanity import profanity
 import statistics
 import random
-import os
 import time
+import os
 import sys
 import readline
 
@@ -10,7 +10,7 @@ global randomInt1, randomInt2, seed, numbersList, version, command_history
 
 command_history = [] # Define command_history globally
 
-version = "1.10.8"
+version = "1.11.4"
 profanitye = False
 profanityf = False
 
@@ -85,7 +85,27 @@ def get_int(prompt):
             while True:
                 random_gen(username)
     while i == 'update':
-        os.system('python update.py')
+        for i in range(3):
+            sys.stdout.write('Updating   \r')
+            time.sleep(0.5)
+            sys.stdout.write('Updating.  \r')
+            time.sleep(0.5)
+            sys.stdout.write('Updating.. \r')
+            time.sleep(0.5)
+            sys.stdout.write('Updating...\r')
+            time.sleep(0.5)
+        os.system('git restore *')
+        os.system('git pull')
+        for i in range(3):
+            sys.stdout.write('Restarting   \r')
+            time.sleep(0.5)
+            sys.stdout.write('Restarting.  \r')
+            time.sleep(0.5)
+            sys.stdout.write('Restarting.. \r')
+            time.sleep(0.5)
+            sys.stdout.write('Restarting...\r')
+            time.sleep(0.5)
+            
     while i == "shell":
         command_history.clear()
         readline.clear_history()
