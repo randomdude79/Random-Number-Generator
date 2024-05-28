@@ -8,7 +8,7 @@ import readline
 
 global randomInt1, randomInt2, seed, numbersList, version, command_history
 
-command_history = [] # Define command_history globally
+command_history = []
 
 version = "1.11.5"
 profanitye = False
@@ -188,7 +188,6 @@ def random_gen(username):
     seed1 = seed2 = seed3 = seed4 = ''
     numbersList = []
     print(f'Hello, {username}!')
-    # Generate a new random seed for each function call
     seedquestion0 = input('Would you like to use a seed?\n')
     print()
     if seedquestion0 == 'Yes' or seedquestion0 == 'yes':
@@ -301,5 +300,6 @@ if profanity.contains_profanity(username):
 
 else:
     username = username
+
 while True:
     random_gen(username)
