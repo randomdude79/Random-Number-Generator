@@ -1,34 +1,28 @@
-from better_profanity import profanity
 import statistics
 import random
 import time
 import os
 import sys
-import readline
 
 global randomInt1, randomInt2, seed, numbersList, version
 
 command_history = []
 
-version = "1.11.5"
+version = "1.12"
 
 seed = []
 numbersList = []
-
 
 def copy(seed):
     with open('seed.txt', 'w') as s:
         s.write(str(seed))
         print('Check seed.txt for your seed')
 
-
 def clear():
     os.system('clear')
 
-
 def exit_program():
     sys.exit()
-
 
 def is_an_integer(s):
     try:
@@ -36,7 +30,6 @@ def is_an_integer(s):
         return True
     except ValueError:
         return False
-
 
 def get_int(prompt):
     i = input(prompt)
@@ -89,7 +82,6 @@ def get_int(prompt):
         i = input(f'You have entered "{i}".' +
                   f' "{i}" is not an integer. Please enter an integer.\n')
     return int(i)
-
 
 def random_gen():
     randomInt1 = None
