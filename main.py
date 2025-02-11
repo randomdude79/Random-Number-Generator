@@ -8,7 +8,7 @@ global randomInt1, randomInt2, seed, numbersList, version
 
 command_history = []
 
-version = "1.12"
+version = "1.12.1"
 
 seed = []
 numbersList = []
@@ -41,7 +41,7 @@ def get_int(prompt):
         clear()
         print('Console cleared!\n')
         while True:
-            random_gen(username)
+            random_gen()
     while i == 'updates':
         with open('noncode/UpdateLog.txt', 'r') as f:
             print(f.read())
@@ -85,7 +85,6 @@ def get_int(prompt):
 
 def random_gen():
     randomInt1 = None
-    randomInt2 = None
     seed1 = seed2 = seed3 = seed4 = ''
     numbersList = []
     seedquestion0 = input('Would you like to use a seed?\n')
@@ -113,7 +112,7 @@ def random_gen():
     number1 = int(number1)
     number2 = int(number2)
     if number1 > number2:
-        continue
+        pass
     else:
         number1, number2 = number2, number1
     
@@ -143,15 +142,15 @@ def random_gen():
                         random_gen()
                 else:
                     while True:
-                        random_gen(username)
+                        random_gen()
             elif seedquestion == 'No' or seedquestion == 'no':
                 while True:
                     random_gen()
-        if amount == 1:
+    if amount == 1:
             randomInt1 = random.randint(number2, number1)
             print('Your random number is:\n', randomInt1)
-        random.seed()
-        print()
+    random.seed()
+    print()
     
 while True:
     random_gen()
