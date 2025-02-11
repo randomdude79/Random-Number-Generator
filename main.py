@@ -6,7 +6,7 @@ import sys
 
 global randomInt1, seed, numbersList, version
 
-version = "1.12.1"
+version = "1.12.3"
 
 seed = []
 numbersList = []
