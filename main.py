@@ -4,9 +4,7 @@ import time
 import os
 import sys
 
-global randomInt1, randomInt2, seed, numbersList, version
-
-command_history = []
+global randomInt1, seed, numbersList, version
 
 version = "1.12.1"
 
