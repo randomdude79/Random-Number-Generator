@@ -90,7 +90,7 @@ def random_gen():
     seedquestion0 = input('Would you like to use a seed?\n')
     print()
     if seedquestion0 == 'Yes' or seedquestion0 == 'yes':
-        seed = input('Enter a seed:\n')
+        seed = int(input('Enter a seed:\n'))
         random.seed(seed)
     else:
         for i in range(5):
