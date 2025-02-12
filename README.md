@@ -38,4 +38,4 @@ This Python program generates random numbers based on user input. It allows user
 - This project is licensed under the Apache 2.0 License. See the [`LICENSE`](LICENSE) file for details.
 
 ## Author's Notes
-- If anybody wants to help with this project, contact me through email [here.](https://mail.google.com/mail/u/0/?fs=1&to=sasha.craftyshark@gmail.com&tf=cm)
+- If anybody wants to help with this project, contact me through email [here.](https://mail.google.com/mail/u/0/?fs=1&to=sashapbaranov@gmail.com&tf=cm)
