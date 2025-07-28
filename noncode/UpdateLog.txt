@@ -6,7 +6,7 @@ Scheduled:
 Past:  
 1.12.X Bug fixes and lightweight updates  
 1.11.X Seed import updates  
-1.10.X Finilazing release  
+1.10.X Finalizing release  
 1.9.X Update script  
 1.8.X Seed Database  
 1.7.X Seeds  
