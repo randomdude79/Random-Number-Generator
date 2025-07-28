@@ -1,6 +1,8 @@
 # Random Number Generator MAX
 ![logo](/noncode/logo.png)
 
+## IMPORTANT!!! This program is no longer getting updates as I have designed a better version [here.](https://github.com/randomdude79/RNG-Lite)
+## The GitHub Repo will stay up so that you can still keep the newest version.
 This Python program generates random numbers based on user input. It allows users to specify a range of numbers and the number of random numbers to generate. The program also supports the use of a seed for deterministic random number generation.
 
 ## Features
