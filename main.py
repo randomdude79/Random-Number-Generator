@@ -11,6 +11,15 @@ version = "1.12.3"
 seed = []
 numbersList = []
 
+def loading_bar(duration=5, bar_length=20):
+    for i in range(bar_length + 1):
+        percent = int((i / bar_length) * 100)
+        bar = '=' * i + '>' + ' ' * (bar_length - i)
+        sys.stdout.write(f'\r{percent:3}% [{bar}]')
+        sys.stdout.flush()
+        time.sleep(duration / bar_length)
+    print()  # Move to the next line after done
+
 def copy(seed):
     with open('seed.txt', 'w') as s:
         s.write(str(seed))
@@ -51,15 +60,7 @@ def get_int(prompt):
                 random_gen()
     while i == 'update':
         clear()
-        for i in range(3):
-            sys.stdout.write('Updating   \r')
-            time.sleep(0.5)
-            sys.stdout.write('Updating.  \r')
-            time.sleep(0.5)
-            sys.stdout.write('Updating.. \r')
-            time.sleep(0.5)
-            sys.stdout.write('Updating...\r')
-            time.sleep(0.5)
+        loading_bar(duration=5, bar_length=20)
         os.system('git restore *')
         os.system('git pull')
         for i in range(3):
