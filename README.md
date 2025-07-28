@@ -1,4 +1,4 @@
-# Random Number Generator
+# Random Number Generator MAX
 ![logo](/noncode/logo.png)
 
 This Python program generates random numbers based on user input. It allows users to specify a range of numbers and the number of random numbers to generate. The program also supports the use of a seed for deterministic random number generation.
@@ -18,16 +18,10 @@ This Python program generates random numbers based on user input. It allows user
 
 ## Usage
 
-- Upon running the program, you will be prompted to enter a username.
 - You will then be asked if you want to use a seed for random number generation.
 - Next, you will be prompted to choose a range of numbers (minimum and maximum) and the number of random numbers to generate.
 - The program will generate the random numbers and display them on the screen.
 - You can also choose to find the average of the generated numbers and copy the seed used for generation.
-
-## Feedback
-
-- Users can provide feedback on the program by entering their feedback and email address.
-- The program detects and filters profanity in both the feedback and email inputs.
 
 ## Contributions
 
